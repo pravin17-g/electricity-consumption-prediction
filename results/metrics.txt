@@ -1,0 +1,10 @@
+Electricity Consumption Prediction - LSTM
+
+MAE:
+0.9878 kWh
+
+RMSE:
+1.2352 kWh
+
+MAPE:
+22.39 %

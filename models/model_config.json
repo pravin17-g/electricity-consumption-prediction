@@ -1,0 +1,50 @@
+{
+    "task": "Next-hour electricity consumption prediction",
+    "sequence_length": 24,
+    "num_features": 6,
+    "input_shape": [
+        24,
+        6
+    ],
+    "architecture": [
+        {
+            "layer": "LSTM",
+            "units": 64,
+            "return_sequences": true
+        },
+        {
+            "layer": "Dropout",
+            "rate": 0.2
+        },
+        {
+            "layer": "LSTM",
+            "units": 32,
+            "return_sequences": false
+        },
+        {
+            "layer": "Dropout",
+            "rate": 0.2
+        },
+        {
+            "layer": "Dense",
+            "units": 16,
+            "activation": "relu"
+        },
+        {
+            "layer": "Dense",
+            "units": 1,
+            "activation": "linear"
+        }
+    ],
+    "compile": {
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "loss": "mean_squared_error",
+        "metrics": [
+            "mae"
+        ]
+    },
+    "total_parameters": 31137,
+    "status": "architecture built - sanity check only, NOT fully trained",
+    "final_model_path": "models/lstm_model.keras"
+}
